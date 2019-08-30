@@ -1,15 +1,15 @@
 <template>
   <div>
+    <Header></Header>
     <router-view></router-view>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Footer from "./components/Footer";
+import Header from "./components/Header";
 export default {
   components: {
-    Footer
+    Header
   }
 };
 </script>
@@ -21,5 +21,9 @@ export default {
   list-style: none;
   text-decoration: none;
   font-size: 14px;
+}
+
+.active {
+  color: red;
 }
 </style>

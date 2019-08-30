@@ -15,19 +15,20 @@ export default new Router({
             component: Home
         },
         {
-            path: '/discover',
-            name: 'Discover',
-            component: resolve => require(['@/views/Discover'], resolve)
+            path: '/classify',
+            name: 'Classify',
+            component: resolve => require(['@/views/Classify'], resolve)
         },
         {
-            path: '/order',
-            name: 'Order',
-            component: resolve => require(['@/views/Order'], resolve)
+            path: '/ranking',
+            name: 'Ranking',
+            component: resolve => require(['@/views/Ranking'], resolve)
         },
         {
-            path: '/my',
-            name: 'My',
-            component: resolve => require(['@/views/My'], resolve)
+            path: '/bookrack',
+            name: 'Bookrack',
+            component: resolve => require(['@/views/Bookrack'], resolve)
         }
-    ]
+    ],
+    linkActiveClass:'active'
 })
