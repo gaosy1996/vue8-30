@@ -4,6 +4,7 @@
     <router-link tag="span" to="/classify">分类</router-link>
     <router-link tag="span" to="/ranking">排行</router-link>
     <router-link tag="span" to="/bookrack">书架</router-link>
+    
   </div>
 </template>
 

@@ -20,9 +20,9 @@ import '@/assets/js/font.js';
 import 'animate.css';
 
 //swiper
-import  VueAwesomeSwiper  from  'vue-awesome-swiper'
-import  'swiper/dist/css/swiper.css'
-Vue.use(VueAwesomeSwiper); 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper);
 
 //vuex
 import store from './store'

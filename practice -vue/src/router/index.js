@@ -4,7 +4,7 @@ import Home from '@/views/Home'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     routes: [
         {
             path: '/',
@@ -12,12 +12,40 @@ export default new Router({
         },
         {
             path: '/home',
-            component: Home
+            component: Home,
         },
         {
             path: '/classify',
             name: 'Classify',
-            component: resolve => require(['@/views/Classify'], resolve)
+            component: resolve => require(['@/views/Classify'], resolve),
+            children: [
+                {
+                    path: '/',
+                    name: 'Hot',
+                    component: resolve => require(['@/views/Hot'], resolve)
+                },
+                {
+                    path: '/classify/hot',
+                    name: 'Hot',
+                    component: resolve => require(['@/views/Hot'], resolve)
+                },
+                {
+                    path: '/classify/newbook',
+                    name: 'Newbook',
+                    component: resolve => require(['@/views/Newbook'], resolve)
+                },
+                {
+                    path: '/classify/free',
+                    name: 'Free',
+                    component: resolve => require(['@/views/Free'], resolve)
+                },
+                {
+                    path: '/classify/end',
+                    name: 'End',
+                    component: resolve => require(['@/views/End'], resolve)
+                }
+
+            ]
         },
         {
             path: '/ranking',
@@ -28,7 +56,39 @@ export default new Router({
             path: '/bookrack',
             name: 'Bookrack',
             component: resolve => require(['@/views/Bookrack'], resolve)
+        },
+        {
+            path: '/login',
+            name: 'Login',
+            component: resolve => require(['@/views/Login'], resolve)
+        },
+        {
+            path: '/details/:id',
+            name: 'Details',
+            component: resolve => require(['@/views/Details'], resolve)
+        },
+        {
+            path: '*',
+            name: '404',
+            component: resolve => require(['@/views/404'], resolve)
         }
     ],
-    linkActiveClass:'active'
+    linkActiveClass: 'active'
 })
+
+let way = ['/bookrack']
+
+router.beforeEach((to, from, next) => {
+    if (way.includes(to.path)) {
+        if (localStorage.getItem('user')) {
+            next()
+        } else {
+            next('/login')
+        }
+    } else {
+        next()
+    }
+})
+
+
+export default router;

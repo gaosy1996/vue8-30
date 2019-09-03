@@ -13,7 +13,11 @@ import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
-      swiperOption: {}
+      swiperOption: {
+        autoplay: {
+          delay: 3000
+        }
+      }
     };
   },
   computed: {
